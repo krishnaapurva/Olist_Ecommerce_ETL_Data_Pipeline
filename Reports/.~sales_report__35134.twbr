@@ -1,0 +1,1325 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20241.24.0425.1340                               -->
+<workbook original-version='18.1' source-build='2024.1.2 (20241.24.0425.1340)' source-platform='mac' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <_.fcp.AnimationOnByDefault.true...AnimationOnByDefault />
+    <IntuitiveSorting />
+    <IntuitiveSorting_SP2 />
+    <MapboxVectorStylesAndLayers />
+    <_.fcp.MarkAnimation.true...MarkAnimation />
+    <_.fcp.ObjectModelEncapsulateLegacy.true...ObjectModelEncapsulateLegacy />
+    <_.fcp.ObjectModelTableType.true...ObjectModelTableType />
+    <_.fcp.SchemaViewerObjectModel.true...SchemaViewerObjectModel />
+    <SheetIdentifierTracking />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <_.fcp.AnimationOnByDefault.false...style>
+    <_.fcp.AnimationOnByDefault.false..._.fcp.MarkAnimation.true...style-rule element='animation'>
+      <_.fcp.AnimationOnByDefault.false...format attr='animation-on' value='ao-on' />
+    </_.fcp.AnimationOnByDefault.false..._.fcp.MarkAnimation.true...style-rule>
+  </_.fcp.AnimationOnByDefault.false...style>
+  <datasources>
+    <datasource hasconnection='false' inline='true' name='Parameters' version='18.1'>
+      <aliases enabled='yes' />
+      <column caption='Top Cities Sales' datatype='integer' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='14'>
+        <calculation class='tableau' formula='14' />
+        <range granularity='1' max='20' min='1' />
+      </column>
+      <column caption='Top State Sales' datatype='integer' name='[Parameter 2]' param-domain-type='range' role='measure' type='quantitative' value='10'>
+        <calculation class='tableau' formula='10' />
+        <range granularity='1' max='26' min='1' />
+      </column>
+    </datasource>
+    <datasource caption='customer_orders (ecom_olist_stores_db.customer_orders)+ (ecom_olist_stores_db)' inline='true' name='federated.02www871oc1sey1f9224n0n18u2m' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='localhost' name='postgres.1qrzk071dlgdk7168uipp0eliz4k'>
+            <connection authentication='username-password' class='postgres' dbname='ecom_olist_stores_db' one-time-sql='' port='5432' server='localhost' username='postgres' />
+          </named-connection>
+        </named-connections>
+        <_.fcp.ObjectModelEncapsulateLegacy.false...relation connection='postgres.1qrzk071dlgdk7168uipp0eliz4k' name='customer_orders' table='[ecom_olist_stores_db].[customer_orders]' type='table' />
+        <_.fcp.ObjectModelEncapsulateLegacy.true...relation type='collection'>
+          <relation connection='postgres.1qrzk071dlgdk7168uipp0eliz4k' name='customer_orders' table='[ecom_olist_stores_db].[customer_orders]' type='table' />
+          <relation connection='postgres.1qrzk071dlgdk7168uipp0eliz4k' name='high_value_customers' table='[ecom_olist_stores_db].[high_value_customers]' type='table' />
+          <relation connection='postgres.1qrzk071dlgdk7168uipp0eliz4k' name='order_history' table='[ecom_olist_stores_db].[order_history]' type='table' />
+          <relation connection='postgres.1qrzk071dlgdk7168uipp0eliz4k' name='order_items' table='[ecom_olist_stores_db].[order_items]' type='table' />
+          <relation connection='postgres.1qrzk071dlgdk7168uipp0eliz4k' name='product_summary' table='[ecom_olist_stores_db].[product_summary]' type='table' />
+          <relation connection='postgres.1qrzk071dlgdk7168uipp0eliz4k' name='sales_summary' table='[ecom_olist_stores_db].[sales_summary]' type='table' />
+        </_.fcp.ObjectModelEncapsulateLegacy.true...relation>
+        <cols>
+          <map key='[average_order_value]' value='[sales_summary].[average_order_value]' />
+          <map key='[average_price]' value='[product_summary].[average_price]' />
+          <map key='[customer_city (high_value_customers)]' value='[high_value_customers].[customer_city]' />
+          <map key='[customer_city]' value='[customer_orders].[customer_city]' />
+          <map key='[customer_id (high_value_customers)]' value='[high_value_customers].[customer_id]' />
+          <map key='[customer_id (order_history)]' value='[order_history].[customer_id]' />
+          <map key='[customer_id]' value='[customer_orders].[customer_id]' />
+          <map key='[customer_state (high_value_customers)]' value='[high_value_customers].[customer_state]' />
+          <map key='[customer_state]' value='[customer_orders].[customer_state]' />
+          <map key='[customer_unique_id]' value='[customer_orders].[customer_unique_id]' />
+          <map key='[freight_value]' value='[order_items].[freight_value]' />
+          <map key='[month]' value='[sales_summary].[month]' />
+          <map key='[order_date]' value='[order_history].[order_date]' />
+          <map key='[order_id (order_history)]' value='[order_history].[order_id]' />
+          <map key='[order_id (order_items)]' value='[order_items].[order_id]' />
+          <map key='[order_id]' value='[customer_orders].[order_id]' />
+          <map key='[order_item_id]' value='[order_items].[order_item_id]' />
+          <map key='[order_purchase_timestamp]' value='[customer_orders].[order_purchase_timestamp]' />
+          <map key='[order_status]' value='[order_history].[order_status]' />
+          <map key='[price (order_items)]' value='[order_items].[price]' />
+          <map key='[price]' value='[customer_orders].[price]' />
+          <map key='[product_category_id (product_summary)]' value='[product_summary].[product_category_id]' />
+          <map key='[product_category_id (sales_summary)]' value='[sales_summary].[product_category_id]' />
+          <map key='[product_category_id]' value='[customer_orders].[product_category_id]' />
+          <map key='[product_category_name_english (product_summary)]' value='[product_summary].[product_category_name_english]' />
+          <map key='[product_category_name_english (sales_summary)]' value='[sales_summary].[product_category_name_english]' />
+          <map key='[product_category_name_english]' value='[customer_orders].[product_category_name_english]' />
+          <map key='[product_id (order_items)]' value='[order_items].[product_id]' />
+          <map key='[product_id (product_summary)]' value='[product_summary].[product_id]' />
+          <map key='[product_id (sales_summary)]' value='[sales_summary].[product_id]' />
+          <map key='[product_id]' value='[customer_orders].[product_id]' />
+          <map key='[seller_id]' value='[order_items].[seller_id]' />
+          <map key='[shipping_limit_date]' value='[order_items].[shipping_limit_date]' />
+          <map key='[total_price]' value='[order_items].[total_price]' />
+          <map key='[total_sales (product_summary)]' value='[product_summary].[total_sales]' />
+          <map key='[total_sales]' value='[sales_summary].[total_sales]' />
+          <map key='[total_spent]' value='[high_value_customers].[total_spent]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>customer_id</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[customer_id]</local-name>
+            <parent-name>[customer_orders]</parent-name>
+            <remote-alias>customer_id</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>2147483647</width>
+            <contains-null>true</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[customer_orders (ecom_olist_stores_db.customer_orders)_9FB8D119B4C84CA7966FFA7384066AB2]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>customer_unique_id</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[customer_unique_id]</local-name>
+            <parent-name>[customer_orders]</parent-name>
+            <remote-alias>customer_unique_id</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>2147483647</width>
+            <contains-null>true</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[customer_orders (ecom_olist_stores_db.customer_orders)_9FB8D119B4C84CA7966FFA7384066AB2]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>customer_city</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[customer_city]</local-name>
+            <parent-name>[customer_orders]</parent-name>
+            <remote-alias>customer_city</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>2147483647</width>
+            <contains-null>true</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[customer_orders (ecom_olist_stores_db.customer_orders)_9FB8D119B4C84CA7966FFA7384066AB2]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>customer_state</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[customer_state]</local-name>
+            <parent-name>[customer_orders]</parent-name>
+            <remote-alias>customer_state</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>2147483647</width>
+            <contains-null>true</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[customer_orders (ecom_olist_stores_db.customer_orders)_9FB8D119B4C84CA7966FFA7384066AB2]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>order_id</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[order_id]</local-name>
+            <parent-name>[customer_orders]</parent-name>
+            <remote-alias>order_id</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>2147483647</width>
+            <contains-null>true</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[customer_orders (ecom_olist_stores_db.customer_orders)_9FB8D119B4C84CA7966FFA7384066AB2]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>order_purchase_timestamp</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[order_purchase_timestamp]</local-name>
+            <parent-name>[customer_orders]</parent-name>
+            <remote-alias>order_purchase_timestamp</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>2147483647</width>
+            <contains-null>true</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[customer_orders (ecom_olist_stores_db.customer_orders)_9FB8D119B4C84CA7966FFA7384066AB2]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>product_id</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[product_id]</local-name>
+            <parent-name>[customer_orders]</parent-name>
+            <remote-alias>product_id</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>2147483647</width>
+            <contains-null>true</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[customer_orders (ecom_olist_stores_db.customer_orders)_9FB8D119B4C84CA7966FFA7384066AB2]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>product_category_id</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[product_category_id]</local-name>
+            <parent-name>[customer_orders]</parent-name>
+            <remote-alias>product_category_id</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>19</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[customer_orders (ecom_olist_stores_db.customer_orders)_9FB8D119B4C84CA7966FFA7384066AB2]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>product_category_name_english</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[product_category_name_english]</local-name>
+            <parent-name>[customer_orders]</parent-name>
+            <remote-alias>product_category_name_english</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>2147483647</width>
+            <contains-null>true</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[customer_orders (ecom_olist_stores_db.customer_orders)_9FB8D119B4C84CA7966FFA7384066AB2]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>price</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[price]</local-name>
+            <parent-name>[customer_orders]</parent-name>
+            <remote-alias>price</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[customer_orders (ecom_olist_stores_db.customer_orders)_9FB8D119B4C84CA7966FFA7384066AB2]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>customer_id</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[customer_id (high_value_customers)]</local-name>
+            <parent-name>[high_value_customers]</parent-name>
+            <remote-alias>customer_id</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>2147483647</width>
+            <contains-null>true</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[high_value_customers (ecom_olist_stores_db.high_value_customers)_D4356B96028A4616AC97F0D0B98F9B04]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>customer_city</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[customer_city (high_value_customers)]</local-name>
+            <parent-name>[high_value_customers]</parent-name>
+            <remote-alias>customer_city</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>2147483647</width>
+            <contains-null>true</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[high_value_customers (ecom_olist_stores_db.high_value_customers)_D4356B96028A4616AC97F0D0B98F9B04]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>customer_state</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[customer_state (high_value_customers)]</local-name>
+            <parent-name>[high_value_customers]</parent-name>
+            <remote-alias>customer_state</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>2147483647</width>
+            <contains-null>true</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[high_value_customers (ecom_olist_stores_db.high_value_customers)_D4356B96028A4616AC97F0D0B98F9B04]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>total_spent</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[total_spent]</local-name>
+            <parent-name>[high_value_customers]</parent-name>
+            <remote-alias>total_spent</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[high_value_customers (ecom_olist_stores_db.high_value_customers)_D4356B96028A4616AC97F0D0B98F9B04]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>order_id</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[order_id (order_history)]</local-name>
+            <parent-name>[order_history]</parent-name>
+            <remote-alias>order_id</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>2147483647</width>
+            <contains-null>true</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[order_history (ecom_olist_stores_db.order_history)_EDFF662B2CD84991928D5C2E220BABA3]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>customer_id</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[customer_id (order_history)]</local-name>
+            <parent-name>[order_history]</parent-name>
+            <remote-alias>customer_id</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>2147483647</width>
+            <contains-null>true</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[order_history (ecom_olist_stores_db.order_history)_EDFF662B2CD84991928D5C2E220BABA3]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>order_date</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[order_date]</local-name>
+            <parent-name>[order_history]</parent-name>
+            <remote-alias>order_date</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>2147483647</width>
+            <contains-null>true</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[order_history (ecom_olist_stores_db.order_history)_EDFF662B2CD84991928D5C2E220BABA3]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>order_status</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[order_status]</local-name>
+            <parent-name>[order_history]</parent-name>
+            <remote-alias>order_status</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>2147483647</width>
+            <contains-null>true</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[order_history (ecom_olist_stores_db.order_history)_EDFF662B2CD84991928D5C2E220BABA3]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>order_id</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[order_id (order_items)]</local-name>
+            <parent-name>[order_items]</parent-name>
+            <remote-alias>order_id</remote-alias>
+            <ordinal>22</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>2147483647</width>
+            <contains-null>true</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[order_items (ecom_olist_stores_db.order_items)_96A59A571755412DB67287584283A840]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>order_item_id</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[order_item_id]</local-name>
+            <parent-name>[order_items]</parent-name>
+            <remote-alias>order_item_id</remote-alias>
+            <ordinal>23</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>19</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[order_items (ecom_olist_stores_db.order_items)_96A59A571755412DB67287584283A840]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>product_id</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[product_id (order_items)]</local-name>
+            <parent-name>[order_items]</parent-name>
+            <remote-alias>product_id</remote-alias>
+            <ordinal>24</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>2147483647</width>
+            <contains-null>true</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[order_items (ecom_olist_stores_db.order_items)_96A59A571755412DB67287584283A840]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>seller_id</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[seller_id]</local-name>
+            <parent-name>[order_items]</parent-name>
+            <remote-alias>seller_id</remote-alias>
+            <ordinal>25</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>2147483647</width>
+            <contains-null>true</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[order_items (ecom_olist_stores_db.order_items)_96A59A571755412DB67287584283A840]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>shipping_limit_date</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[shipping_limit_date]</local-name>
+            <parent-name>[order_items]</parent-name>
+            <remote-alias>shipping_limit_date</remote-alias>
+            <ordinal>26</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>2147483647</width>
+            <contains-null>true</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[order_items (ecom_olist_stores_db.order_items)_96A59A571755412DB67287584283A840]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>price</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[price (order_items)]</local-name>
+            <parent-name>[order_items]</parent-name>
+            <remote-alias>price</remote-alias>
+            <ordinal>27</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[order_items (ecom_olist_stores_db.order_items)_96A59A571755412DB67287584283A840]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>freight_value</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[freight_value]</local-name>
+            <parent-name>[order_items]</parent-name>
+            <remote-alias>freight_value</remote-alias>
+            <ordinal>28</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[order_items (ecom_olist_stores_db.order_items)_96A59A571755412DB67287584283A840]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>total_price</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[total_price]</local-name>
+            <parent-name>[order_items]</parent-name>
+            <remote-alias>total_price</remote-alias>
+            <ordinal>29</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[order_items (ecom_olist_stores_db.order_items)_96A59A571755412DB67287584283A840]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>product_id</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[product_id (product_summary)]</local-name>
+            <parent-name>[product_summary]</parent-name>
+            <remote-alias>product_id</remote-alias>
+            <ordinal>31</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>2147483647</width>
+            <contains-null>true</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[product_summary (ecom_olist_stores_db.product_summary)_DF6E62FA972E4E64A6E078D696216FA4]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>product_category_id</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[product_category_id (product_summary)]</local-name>
+            <parent-name>[product_summary]</parent-name>
+            <remote-alias>product_category_id</remote-alias>
+            <ordinal>32</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>19</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[product_summary (ecom_olist_stores_db.product_summary)_DF6E62FA972E4E64A6E078D696216FA4]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>product_category_name_english</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[product_category_name_english (product_summary)]</local-name>
+            <parent-name>[product_summary]</parent-name>
+            <remote-alias>product_category_name_english</remote-alias>
+            <ordinal>33</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>2147483647</width>
+            <contains-null>true</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[product_summary (ecom_olist_stores_db.product_summary)_DF6E62FA972E4E64A6E078D696216FA4]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>total_sales</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[total_sales (product_summary)]</local-name>
+            <parent-name>[product_summary]</parent-name>
+            <remote-alias>total_sales</remote-alias>
+            <ordinal>34</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>19</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[product_summary (ecom_olist_stores_db.product_summary)_DF6E62FA972E4E64A6E078D696216FA4]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>average_price</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[average_price]</local-name>
+            <parent-name>[product_summary]</parent-name>
+            <remote-alias>average_price</remote-alias>
+            <ordinal>35</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[product_summary (ecom_olist_stores_db.product_summary)_DF6E62FA972E4E64A6E078D696216FA4]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>month</remote-name>
+            <remote-type>135</remote-type>
+            <local-name>[month]</local-name>
+            <parent-name>[sales_summary]</parent-name>
+            <remote-alias>month</remote-alias>
+            <ordinal>37</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[sales_summary (ecom_olist_stores_db.sales_summary)_ABB1016C2C154375B6316C49770DEF75]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>total_sales</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[total_sales]</local-name>
+            <parent-name>[sales_summary]</parent-name>
+            <remote-alias>total_sales</remote-alias>
+            <ordinal>38</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[sales_summary (ecom_olist_stores_db.sales_summary)_ABB1016C2C154375B6316C49770DEF75]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>average_order_value</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[average_order_value]</local-name>
+            <parent-name>[sales_summary]</parent-name>
+            <remote-alias>average_order_value</remote-alias>
+            <ordinal>39</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[sales_summary (ecom_olist_stores_db.sales_summary)_ABB1016C2C154375B6316C49770DEF75]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>product_id</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[product_id (sales_summary)]</local-name>
+            <parent-name>[sales_summary]</parent-name>
+            <remote-alias>product_id</remote-alias>
+            <ordinal>40</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>2147483647</width>
+            <contains-null>true</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[sales_summary (ecom_olist_stores_db.sales_summary)_ABB1016C2C154375B6316C49770DEF75]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>product_category_id</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[product_category_id (sales_summary)]</local-name>
+            <parent-name>[sales_summary]</parent-name>
+            <remote-alias>product_category_id</remote-alias>
+            <ordinal>41</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>19</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[sales_summary (ecom_olist_stores_db.sales_summary)_ABB1016C2C154375B6316C49770DEF75]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>product_category_name_english</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[product_category_name_english (sales_summary)]</local-name>
+            <parent-name>[sales_summary]</parent-name>
+            <remote-alias>product_category_name_english</remote-alias>
+            <ordinal>42</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>2147483647</width>
+            <contains-null>true</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[sales_summary (ecom_olist_stores_db.sales_summary)_ABB1016C2C154375B6316C49770DEF75]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Total Sales Revenue' datatype='real' name='[Calculation_2472335484750700544]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='SUM([total_sales])' />
+      </column>
+      <_.fcp.ObjectModelTableType.true...column caption='customer_orders' datatype='table' name='[__tableau_internal_object_id__].[customer_orders (ecom_olist_stores_db.customer_orders)_9FB8D119B4C84CA7966FFA7384066AB2]' role='measure' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='high_value_customers' datatype='table' name='[__tableau_internal_object_id__].[high_value_customers (ecom_olist_stores_db.high_value_customers)_D4356B96028A4616AC97F0D0B98F9B04]' role='measure' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='order_history' datatype='table' name='[__tableau_internal_object_id__].[order_history (ecom_olist_stores_db.order_history)_EDFF662B2CD84991928D5C2E220BABA3]' role='measure' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='order_items' datatype='table' name='[__tableau_internal_object_id__].[order_items (ecom_olist_stores_db.order_items)_96A59A571755412DB67287584283A840]' role='measure' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='product_summary' datatype='table' name='[__tableau_internal_object_id__].[product_summary (ecom_olist_stores_db.product_summary)_DF6E62FA972E4E64A6E078D696216FA4]' role='measure' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='sales_summary' datatype='table' name='[__tableau_internal_object_id__].[sales_summary (ecom_olist_stores_db.sales_summary)_ABB1016C2C154375B6316C49770DEF75]' role='measure' type='quantitative' />
+      <column caption='Average Order Value' datatype='real' name='[average_order_value]' role='measure' type='quantitative' />
+      <column caption='Average Price' datatype='real' name='[average_price]' role='measure' type='quantitative' />
+      <column caption='Customer City (High Value Customers)' datatype='string' name='[customer_city (high_value_customers)]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+      <column caption='Customer City' datatype='string' name='[customer_city]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+      <column caption='Customer Id (High Value Customers)' datatype='string' name='[customer_id (high_value_customers)]' role='dimension' type='nominal' />
+      <column caption='Customer Id (Order History)' datatype='string' name='[customer_id (order_history)]' role='dimension' type='nominal' />
+      <column caption='Customer Id' datatype='string' name='[customer_id]' role='dimension' type='nominal' />
+      <column caption='Customer State (High Value Customers)' datatype='string' name='[customer_state (high_value_customers)]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+      <column caption='Customer State' datatype='string' name='[customer_state]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+      <column caption='Customer Unique Id' datatype='string' name='[customer_unique_id]' role='dimension' type='nominal' />
+      <column caption='Freight Value' datatype='real' name='[freight_value]' role='measure' type='quantitative' />
+      <column caption='Month' datatype='datetime' name='[month]' role='dimension' type='ordinal' />
+      <column caption='Order Date' datatype='string' name='[order_date]' role='dimension' type='nominal' />
+      <column caption='Order Id (Order History)' datatype='string' name='[order_id (order_history)]' role='dimension' type='nominal' />
+      <column caption='Order Id (Order Items)' datatype='string' name='[order_id (order_items)]' role='dimension' type='nominal' />
+      <column caption='Order Id' datatype='string' name='[order_id]' role='dimension' type='nominal' />
+      <column caption='Order Item Id' datatype='integer' name='[order_item_id]' role='dimension' type='ordinal' />
+      <column caption='Order Purchase Timestamp' datatype='string' name='[order_purchase_timestamp]' role='dimension' type='nominal' />
+      <column caption='Order Status' datatype='string' name='[order_status]' role='dimension' type='nominal' />
+      <column caption='Price (Order Items)' datatype='real' name='[price (order_items)]' role='measure' type='quantitative' />
+      <column caption='Price' datatype='real' name='[price]' role='measure' type='quantitative' />
+      <column caption='Product Category Id (Product Summary)' datatype='integer' name='[product_category_id (product_summary)]' role='dimension' type='ordinal' />
+      <column caption='Product Category Id (Sales Summary)' datatype='integer' name='[product_category_id (sales_summary)]' role='dimension' type='ordinal' />
+      <column caption='Product Category Id' datatype='integer' name='[product_category_id]' role='dimension' type='ordinal' />
+      <column caption='Product Category Name English (Product Summary)' datatype='string' name='[product_category_name_english (product_summary)]' role='dimension' type='nominal' />
+      <column caption='Product Category Name English (Sales Summary)' datatype='string' name='[product_category_name_english (sales_summary)]' role='dimension' type='nominal' />
+      <column caption='Product Category Name English' datatype='string' name='[product_category_name_english]' role='dimension' type='nominal' />
+      <column caption='Product Id (Order Items)' datatype='string' name='[product_id (order_items)]' role='dimension' type='nominal' />
+      <column caption='Product Id (Product Summary)' datatype='string' name='[product_id (product_summary)]' role='dimension' type='nominal' />
+      <column caption='Product Id (Sales Summary)' datatype='string' name='[product_id (sales_summary)]' role='dimension' type='nominal' />
+      <column caption='Product Id' datatype='string' name='[product_id]' role='dimension' type='nominal' />
+      <column caption='Seller Id' datatype='string' name='[seller_id]' role='dimension' type='nominal' />
+      <column caption='Shipping Limit Date' datatype='string' name='[shipping_limit_date]' role='dimension' type='nominal' />
+      <column caption='Total Price' datatype='real' name='[total_price]' role='measure' type='quantitative' />
+      <column caption='Total Sales (Product Summary)' datatype='integer' name='[total_sales (product_summary)]' role='measure' type='quantitative' />
+      <column caption='Total Sales' datatype='real' name='[total_sales]' role='measure' type='quantitative' />
+      <column caption='Total Spent' datatype='real' name='[total_spent]' role='measure' type='quantitative' />
+      <drill-paths>
+        <drill-path name='customer_state, customer_city'>
+          <field>[customer_state]</field>
+          <field>[customer_city]</field>
+        </drill-path>
+      </drill-paths>
+      <layout _.fcp.SchemaViewerObjectModel.false...dim-percentage='0.5' _.fcp.SchemaViewerObjectModel.false...measure-percentage='0.4' dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+      <_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+        <objects>
+          <object caption='customer_orders' id='customer_orders (ecom_olist_stores_db.customer_orders)_9FB8D119B4C84CA7966FFA7384066AB2'>
+            <properties context=''>
+              <relation connection='postgres.1qrzk071dlgdk7168uipp0eliz4k' name='customer_orders' table='[ecom_olist_stores_db].[customer_orders]' type='table' />
+            </properties>
+          </object>
+          <object caption='high_value_customers' id='high_value_customers (ecom_olist_stores_db.high_value_customers)_D4356B96028A4616AC97F0D0B98F9B04'>
+            <properties context=''>
+              <relation connection='postgres.1qrzk071dlgdk7168uipp0eliz4k' name='high_value_customers' table='[ecom_olist_stores_db].[high_value_customers]' type='table' />
+            </properties>
+          </object>
+          <object caption='order_history' id='order_history (ecom_olist_stores_db.order_history)_EDFF662B2CD84991928D5C2E220BABA3'>
+            <properties context=''>
+              <relation connection='postgres.1qrzk071dlgdk7168uipp0eliz4k' name='order_history' table='[ecom_olist_stores_db].[order_history]' type='table' />
+            </properties>
+          </object>
+          <object caption='order_items' id='order_items (ecom_olist_stores_db.order_items)_96A59A571755412DB67287584283A840'>
+            <properties context=''>
+              <relation connection='postgres.1qrzk071dlgdk7168uipp0eliz4k' name='order_items' table='[ecom_olist_stores_db].[order_items]' type='table' />
+            </properties>
+          </object>
+          <object caption='product_summary' id='product_summary (ecom_olist_stores_db.product_summary)_DF6E62FA972E4E64A6E078D696216FA4'>
+            <properties context=''>
+              <relation connection='postgres.1qrzk071dlgdk7168uipp0eliz4k' name='product_summary' table='[ecom_olist_stores_db].[product_summary]' type='table' />
+            </properties>
+          </object>
+          <object caption='sales_summary' id='sales_summary (ecom_olist_stores_db.sales_summary)_ABB1016C2C154375B6316C49770DEF75'>
+            <properties context=''>
+              <relation connection='postgres.1qrzk071dlgdk7168uipp0eliz4k' name='sales_summary' table='[ecom_olist_stores_db].[sales_summary]' type='table' />
+            </properties>
+          </object>
+        </objects>
+        <relationships>
+          <relationship>
+            <expression op='='>
+              <expression op='[customer_id]' />
+              <expression op='[customer_id (high_value_customers)]' />
+            </expression>
+            <first-end-point object-id='customer_orders (ecom_olist_stores_db.customer_orders)_9FB8D119B4C84CA7966FFA7384066AB2' />
+            <second-end-point object-id='high_value_customers (ecom_olist_stores_db.high_value_customers)_D4356B96028A4616AC97F0D0B98F9B04' />
+          </relationship>
+          <relationship>
+            <expression op='='>
+              <expression op='[order_id]' />
+              <expression op='[order_id (order_history)]' />
+            </expression>
+            <first-end-point object-id='customer_orders (ecom_olist_stores_db.customer_orders)_9FB8D119B4C84CA7966FFA7384066AB2' />
+            <second-end-point object-id='order_history (ecom_olist_stores_db.order_history)_EDFF662B2CD84991928D5C2E220BABA3' />
+          </relationship>
+          <relationship>
+            <expression op='='>
+              <expression op='[order_id (order_history)]' />
+              <expression op='[order_id (order_items)]' />
+            </expression>
+            <first-end-point object-id='order_history (ecom_olist_stores_db.order_history)_EDFF662B2CD84991928D5C2E220BABA3' />
+            <second-end-point object-id='order_items (ecom_olist_stores_db.order_items)_96A59A571755412DB67287584283A840' />
+          </relationship>
+          <relationship>
+            <expression op='='>
+              <expression op='[product_id]' />
+              <expression op='[product_id (product_summary)]' />
+            </expression>
+            <first-end-point object-id='customer_orders (ecom_olist_stores_db.customer_orders)_9FB8D119B4C84CA7966FFA7384066AB2' />
+            <second-end-point object-id='product_summary (ecom_olist_stores_db.product_summary)_DF6E62FA972E4E64A6E078D696216FA4' />
+          </relationship>
+          <relationship>
+            <expression op='='>
+              <expression op='[product_id (product_summary)]' />
+              <expression op='[product_id (sales_summary)]' />
+            </expression>
+            <first-end-point object-id='product_summary (ecom_olist_stores_db.product_summary)_DF6E62FA972E4E64A6E078D696216FA4' />
+            <second-end-point object-id='sales_summary (ecom_olist_stores_db.sales_summary)_ABB1016C2C154375B6316C49770DEF75' />
+          </relationship>
+        </relationships>
+      </_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+    </datasource>
+  </datasources>
+  <mapsources>
+    <mapsource name='Tableau' />
+  </mapsources>
+  <worksheets>
+    <worksheet name='Sheet 4'>
+      <table>
+        <view>
+          <datasources />
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='map'>
+            <format attr='washout' value='0.0' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{EE33CD93-EA21-4B9F-9E1C-0F9FA790A2AE}' />
+    </worksheet>
+    <worksheet name='top_sales_citywise'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>Top Citywise Sales</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='customer_orders (ecom_olist_stores_db.customer_orders)+ (ecom_olist_stores_db)' name='federated.02www871oc1sey1f9224n0n18u2m' />
+            <datasource name='Parameters' />
+          </datasources>
+          <datasource-dependencies datasource='Parameters'>
+            <column caption='Top Cities Sales' datatype='integer' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='14'>
+              <calculation class='tableau' formula='14' />
+              <range granularity='1' max='20' min='1' />
+            </column>
+          </datasource-dependencies>
+          <datasource-dependencies datasource='federated.02www871oc1sey1f9224n0n18u2m'>
+            <column caption='Customer City (High Value Customers)' datatype='string' name='[customer_city (high_value_customers)]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+            <column-instance column='[customer_city (high_value_customers)]' derivation='None' name='[none:customer_city (high_value_customers):nk]' pivot='key' type='nominal' />
+            <column-instance column='[total_spent]' derivation='Sum' name='[sum:total_spent:qk]' pivot='key' type='quantitative' />
+            <column caption='Total Spent' datatype='real' name='[total_spent]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.02www871oc1sey1f9224n0n18u2m].[none:customer_city (high_value_customers):nk]'>
+            <groupfilter count='[Parameters].[Parameter 1]' end='top' function='end' units='records' user:ui-marker='end' user:ui-top-by-field='true'>
+              <groupfilter direction='DESC' expression='SUM([total_spent])' function='order' user:ui-marker='order'>
+                <groupfilter function='except' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+                  <groupfilter function='level-members' level='[none:customer_city (high_value_customers):nk]' />
+                  <groupfilter function='union'>
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;abaetetuba&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;agrestina&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;alta floresta&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;altamira&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;alto paraiso&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;ananindeua&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;anapolis&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;aparecida de goiania&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;aparecida do taboado&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;aracaju&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;araguaina&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;arapiraca&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;araripina&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;ariquemes&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;bacabal&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;balneario camboriu&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;balsas&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;barreiras&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;beberibe&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;belem&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;blumenau&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;bom jesus da lapa&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;bom jesus do araguaia&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;brasilia&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;brejo do cruz&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;cachoeiro de itapemirim&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;caicara do norte&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;caldas novas&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;campina grande&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;campo formoso&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;campo grande&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;campo novo do parecis&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;campos sales&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;canoinhas&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;catole do rocha&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;cedro de sao joao&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;ceres&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;chapeco&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;cicero dantas&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;coari&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;cocal do sul&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;codo&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;colider&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;coruripe&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;costa marques&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;criciuma&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;cuiaba&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;curitibanos&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;escada&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;esperanca&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;esplanada&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;eunapolis&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;fatima do sul&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;feira de santana&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;florianopolis&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;fortaleza&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;fronteiras&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;garuva&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;gaspar&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;goiania&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;goiatuba&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;guacui&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;guarapari&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;gurupi&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;ibitita&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;ibotirama&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;imbuia&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;imperatriz&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;ipira&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;ipueiras&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;itaguacu&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;itajai&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;itapaje&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;itapiranga&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;ituporanga&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;jaboatao dos guararapes&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;jacobina&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;jatai&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;ji-parana&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;joacaba&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;joao camara&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;joao pessoa&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;joinville&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;juazeiro&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;juazeiro do norte&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;juina&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;lages&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;linhares&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;loreto&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;lucas do rio verde&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;luis eduardo magalhaes&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;luziania&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;macapa&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;maceio&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;manaus&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;maracanau&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;maragogi&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;marataizes&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;mucuri&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;natal&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;navegantes&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;navirai&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;nova esperanca do piria&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;nova olinda&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;nova olinda do maranhao&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;novo progresso&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;nucleo residencial pilar&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;pacaja&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;pacatuba&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;palmas&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;paranaita&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;paranatinga&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;parauapebas&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;parnamirim&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;passagem&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;pau dos ferros&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;petrolina&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;pianco&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;picarra&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;picos&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;pires do rio&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;pirpirituba&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;ponta pora&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;porto seguro&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;porto uniao&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;porto velho&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;posse&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;primavera do leste&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;querencia&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;recife&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;riachao do jacuipe&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;rio branco&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;rio verde&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;rondonopolis&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;russas&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;salvador&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;sanharo&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;santa cruz do capibaribe&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;santa fe de goias&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;sao bento do una&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;sao joao do piaui&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;sao luis&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;sao sebastiao&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;sape&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;serra&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;sobral&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;tailandia&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;taio&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;tapiramuta&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;teresina&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;timbo&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;tres lagoas&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;trindade&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;tubarao&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;tucurui&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;ubajara&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;valente&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;varzea grande&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;videira&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;vila velha&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;vitoria&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;vitoria da conquista&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;vitorino freire&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='&quot;xanxere&quot;' />
+                    <groupfilter function='member' level='[none:customer_city (high_value_customers):nk]' member='%null%' />
+                  </groupfilter>
+                </groupfilter>
+              </groupfilter>
+            </groupfilter>
+          </filter>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.02www871oc1sey1f9224n0n18u2m].[none:customer_city (high_value_customers):nk]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.02www871oc1sey1f9224n0n18u2m].[sum:total_spent:qk]' shelf='rows' />
+          </shelf-sorts>
+          <slices>
+            <column>[federated.02www871oc1sey1f9224n0n18u2m].[none:customer_city (high_value_customers):nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane id='3' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.02www871oc1sey1f9224n0n18u2m].[sum:total_spent:qk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.02www871oc1sey1f9224n0n18u2m].[none:customer_city (high_value_customers):nk]</rows>
+        <cols>[federated.02www871oc1sey1f9224n0n18u2m].[sum:total_spent:qk]</cols>
+      </table>
+      <simple-id uuid='{9A952C82-3646-4306-B42A-A8BE1AC650AB}' />
+    </worksheet>
+    <worksheet name='top_sales_statewise'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>Top Statewise Sales</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='customer_orders (ecom_olist_stores_db.customer_orders)+ (ecom_olist_stores_db)' name='federated.02www871oc1sey1f9224n0n18u2m' />
+            <datasource name='Parameters' />
+          </datasources>
+          <datasource-dependencies datasource='Parameters'>
+            <column caption='Top State Sales' datatype='integer' name='[Parameter 2]' param-domain-type='range' role='measure' type='quantitative' value='10'>
+              <calculation class='tableau' formula='10' />
+              <range granularity='1' max='26' min='1' />
+            </column>
+          </datasource-dependencies>
+          <datasource-dependencies datasource='federated.02www871oc1sey1f9224n0n18u2m'>
+            <column caption='Customer State (High Value Customers)' datatype='string' name='[customer_state (high_value_customers)]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+            <column-instance column='[customer_state (high_value_customers)]' derivation='None' name='[none:customer_state (high_value_customers):nk]' pivot='key' type='nominal' />
+            <column-instance column='[total_spent]' derivation='Sum' name='[sum:total_spent:qk]' pivot='key' type='quantitative' />
+            <column caption='Total Spent' datatype='real' name='[total_spent]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.02www871oc1sey1f9224n0n18u2m].[none:customer_state (high_value_customers):nk]'>
+            <groupfilter count='[Parameters].[Parameter 2]' end='top' function='end' units='records' user:ui-marker='end' user:ui-top-by-field='true'>
+              <groupfilter direction='DESC' expression='SUM([total_spent])' function='order' user:ui-marker='order'>
+                <groupfilter function='level-members' level='[none:customer_state (high_value_customers):nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+              </groupfilter>
+            </groupfilter>
+          </filter>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.02www871oc1sey1f9224n0n18u2m].[none:customer_state (high_value_customers):nk]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.02www871oc1sey1f9224n0n18u2m].[sum:total_spent:qk]' shelf='columns' />
+          </shelf-sorts>
+          <slices>
+            <column>[federated.02www871oc1sey1f9224n0n18u2m].[none:customer_state (high_value_customers):nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.02www871oc1sey1f9224n0n18u2m].[sum:total_spent:qk]' />
+              <text column='[federated.02www871oc1sey1f9224n0n18u2m].[sum:total_spent:qk]' />
+            </encodings>
+            <customized-label>
+              <formatted-text>
+                <run>$&lt;</run>
+                <run>[federated.02www871oc1sey1f9224n0n18u2m].[sum:total_spent:qk]</run>
+                <run>&gt;</run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-mode' value='all' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.02www871oc1sey1f9224n0n18u2m].[sum:total_spent:qk]</rows>
+        <cols>[federated.02www871oc1sey1f9224n0n18u2m].[none:customer_state (high_value_customers):nk]</cols>
+      </table>
+      <simple-id uuid='{278E5B54-E388-4698-83B1-4F1D24747A6A}' />
+    </worksheet>
+    <worksheet name='tot_sale_revenue'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>Total Sales Revenue</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='customer_orders (ecom_olist_stores_db.customer_orders)+ (ecom_olist_stores_db)' name='federated.02www871oc1sey1f9224n0n18u2m' />
+          </datasources>
+          <datasource-dependencies datasource='federated.02www871oc1sey1f9224n0n18u2m'>
+            <column caption='Total Sales Revenue' datatype='real' name='[Calculation_2472335484750700544]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='SUM([total_sales])' />
+            </column>
+            <column caption='Month' datatype='datetime' name='[month]' role='dimension' type='ordinal' />
+            <column caption='Total Sales' datatype='real' name='[total_sales]' role='measure' type='quantitative' />
+            <column-instance column='[month]' derivation='Quarter-Trunc' name='[tqr:month:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_2472335484750700544]' derivation='User' name='[usr:Calculation_2472335484750700544:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <text column='[federated.02www871oc1sey1f9224n0n18u2m].[usr:Calculation_2472335484750700544:qk]' />
+            </encodings>
+            <customized-label>
+              <formatted-text>
+                <run>$&lt;</run>
+                <run>[federated.02www871oc1sey1f9224n0n18u2m].[usr:Calculation_2472335484750700544:qk]</run>
+                <run>&gt;</run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-mode' value='all' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.02www871oc1sey1f9224n0n18u2m].[usr:Calculation_2472335484750700544:qk]</rows>
+        <cols>[federated.02www871oc1sey1f9224n0n18u2m].[tqr:month:qk]</cols>
+      </table>
+      <simple-id uuid='{4AEFC1DA-5D37-49CB-BB46-5691B3A5B533}' />
+    </worksheet>
+  </worksheets>
+  <windows source-height='30'>
+    <window class='worksheet' name='tot_sale_revenue'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{E78B3942-E16D-4BBC-8A90-3B3019DAE8B2}' />
+    </window>
+    <window class='worksheet' name='top_sales_citywise'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='3' param='[federated.02www871oc1sey1f9224n0n18u2m].[sum:total_spent:qk]' type='color' />
+            <card mode='slider' param='[Parameters].[Parameter 1]' type='parameter' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+      </viewpoint>
+      <simple-id uuid='{173EE1C4-636C-45C9-BFBC-5BC7F4948EE7}' />
+    </window>
+    <window class='worksheet' name='top_sales_statewise'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card mode='slider' param='[Parameters].[Parameter 2]' type='parameter' />
+            <card pane-specification-id='0' param='[federated.02www871oc1sey1f9224n0n18u2m].[sum:total_spent:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+      </viewpoint>
+      <simple-id uuid='{8BF33538-AD61-4EB9-92E0-412FF8817E11}' />
+    </window>
+    <window class='worksheet' maximized='true' name='Sheet 4'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{D6717474-0B3B-4B2A-8215-34C6DB20B69E}' />
+    </window>
+  </windows>
+</workbook>
