@@ -6,6 +6,7 @@
     <_.fcp.AnimationOnByDefault.true...AnimationOnByDefault />
     <IntuitiveSorting />
     <IntuitiveSorting_SP2 />
+    <MapboxVectorStylesAndLayers />
     <_.fcp.MarkAnimation.true...MarkAnimation />
     <_.fcp.ObjectModelEncapsulateLegacy.true...ObjectModelEncapsulateLegacy />
     <_.fcp.ObjectModelTableType.true...ObjectModelTableType />
@@ -822,8 +823,38 @@
       </_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
     </datasource>
   </datasources>
+  <mapsources>
+    <mapsource name='Tableau' />
+  </mapsources>
   <worksheets>
-    <worksheet name='Sheet 2'>
+    <worksheet name='Sheet 4'>
+      <table>
+        <view>
+          <datasources />
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='map'>
+            <format attr='washout' value='0.0' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{EE33CD93-EA21-4B9F-9E1C-0F9FA790A2AE}' />
+    </worksheet>
+    <worksheet name='top_sales_citywise'>
       <layout-options>
         <title>
           <formatted-text>
@@ -1050,11 +1081,11 @@
       </table>
       <simple-id uuid='{9A952C82-3646-4306-B42A-A8BE1AC650AB}' />
     </worksheet>
-    <worksheet name='Sheet 3'>
+    <worksheet name='top_sales_statewise'>
       <layout-options>
         <title>
           <formatted-text>
-            <run>Top Sales Statewise</run>
+            <run>Top Statewise Sales</run>
           </formatted-text>
         </title>
       </layout-options>
@@ -1180,7 +1211,7 @@
     </worksheet>
   </worksheets>
   <windows source-height='30'>
-    <window class='worksheet' maximized='true' name='tot_sale_revenue'>
+    <window class='worksheet' name='tot_sale_revenue'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -1211,7 +1242,7 @@
       </viewpoint>
       <simple-id uuid='{E78B3942-E16D-4BBC-8A90-3B3019DAE8B2}' />
     </window>
-    <window class='worksheet' name='Sheet 2'>
+    <window class='worksheet' name='top_sales_citywise'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -1250,7 +1281,7 @@
       </viewpoint>
       <simple-id uuid='{173EE1C4-636C-45C9-BFBC-5BC7F4948EE7}' />
     </window>
-    <window class='worksheet' name='Sheet 3'>
+    <window class='worksheet' name='top_sales_statewise'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -1287,9 +1318,70 @@
       </viewpoint>
       <simple-id uuid='{8BF33538-AD61-4EB9-92E0-412FF8817E11}' />
     </window>
+    <window class='worksheet' maximized='true' name='Sheet 4'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.02www871oc1sey1f9224n0n18u2m].[none:customer_city (high_value_customers):nk]</field>
+            <field>[federated.02www871oc1sey1f9224n0n18u2m].[none:customer_city:nk]</field>
+            <field>[federated.02www871oc1sey1f9224n0n18u2m].[none:customer_state (high_value_customers):nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{D6717474-0B3B-4B2A-8215-34C6DB20B69E}' />
+    </window>
   </windows>
   <thumbnails>
-    <thumbnail height='384' name='Sheet 2' width='384'>
+    <thumbnail height='384' name='Sheet 4' width='384'>
+      iVBORw0KGgoAAAANSUhEUgAAAYAAAAGACAYAAACkx7W/AAAACXBIWXMAAA7DAAAOwwHHb6hk
+      AAAFXUlEQVR4nO3VMQEAIAzAMMC/5yFjRxMF/XpnZg4AOW87AIAdBgAQZQAAUQYAEGUAAFEG
+      ABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAA
+      UQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBl
+      AABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYA
+      EGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABR
+      BgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUA
+      AFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQ
+      ZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEG
+      ABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAA
+      UQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBl
+      AABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYA
+      EGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABR
+      BgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUA
+      AFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQ
+      ZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEG
+      ABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAA
+      UQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBl
+      AABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYA
+      EGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABR
+      BgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUA
+      AFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQ
+      ZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEG
+      ABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAA
+      UQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBl
+      AABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYA
+      EGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEfFxoG/IiMv0YAAAAASUVORK5CYII=
+    </thumbnail>
+    <thumbnail height='384' name='top_sales_citywise' width='384'>
       iVBORw0KGgoAAAANSUhEUgAAAYAAAAGACAYAAACkx7W/AAAACXBIWXMAAA7DAAAOwwHHb6hk
       AAAgAElEQVR4nO3dSWwcZ37//3dV9U42d0pcRVKLtcvULmtkWyMvM/ObTOaUAEES5BQg/0vm
       FgTIJb9LDr/D3II5/W5/IIM/ECDATMaz2LLG2hdrsUiREheREsVFpMgWm2Qv1VX1PyhsWyN7
@@ -1531,7 +1623,7 @@
       HDt2jKmpKUZHR9m7dy/V1dV0dHQQCoXYuXMnqVSK6elpNm/eXDyWiYkJEonEivYgWAtaC0hE
       Au/nP/85f/mXf+n7BvNrTQEgIhJQwYo7EREp+v8Bjt5IL9lhuBAAAAAASUVORK5CYII=
     </thumbnail>
-    <thumbnail height='384' name='Sheet 3' width='384'>
+    <thumbnail height='384' name='top_sales_statewise' width='384'>
       iVBORw0KGgoAAAANSUhEUgAAAYAAAAGACAYAAACkx7W/AAAACXBIWXMAAA7DAAAOwwHHb6hk
       AAAgAElEQVR4nO3deXTU9b3/8efsk5AdkpAESEgChCWAbDHESABZtO7VXisutdZu2nM8rd3t
       Oe3vek+X09rW1tv22vba6q1avS2KKKCAaFAERFaBAAkhe0LWmckymZnv7w/KXFHBBCckw/f1
