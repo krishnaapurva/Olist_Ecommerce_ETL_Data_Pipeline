@@ -133,7 +133,7 @@ CREATE TABLE order_items (
 
 --=== payment_type ===--
 
-CREATE TABLE payment_type (
+CREATE TABLE payment_types (
 	payment_type_id INT,
 	payment_type_name VARCHAR(255) NOT NULL,
 	
@@ -152,7 +152,7 @@ CREATE TABLE order_payments (
     
 	CONSTRAINT pk_order_payment PRIMARY KEY (order_id, payment_sequential), 
     FOREIGN KEY (order_id) REFERENCES orders(order_id),
-	FOREIGN KEY (payment_type_id) REFERENCES payment_type(payment_type_id)
+	FOREIGN KEY (payment_type_id) REFERENCES payment_types(payment_type_id)
 );
 
 --=== order_review table ===--
