@@ -15,7 +15,8 @@ DROP VIEW IF EXISTS customer_orders Cascade;
 
 --==== DROP TRIGGERS ===--
 
-DROP TRIGGER IF EXISTS trg_update_order_dates;
+DROP TRIGGER IF EXISTS trg_update_order_dates ON orders CASCADE;
+
 
 --==== DROP Tables ====--
 
@@ -28,7 +29,7 @@ DROP TABLE IF EXISTS order_reviews Cascade;
 DROP TABLE IF EXISTS products Cascade;
 DROP TABLE IF EXISTS product_categories Cascade;
 DROP TABLE IF EXISTS geolocation Cascade;
-DROP TABLE IF EXISTS payment_type Cascade;
+DROP TABLE IF EXISTS payment_types Cascade;
 
 --==== create tables ===--
 
