@@ -13,6 +13,10 @@ DROP VIEW IF EXISTS product_summary Cascade;
 DROP VIEW IF EXISTS sales_summary Cascade;
 DROP VIEW IF EXISTS customer_orders Cascade;
 
+--==== DROP TRIGGERS ===--
+
+DROP TRIGGER IF EXISTS trg_update_order_dates;
+
 --==== DROP Tables ====--
 
 DROP TABLE IF EXISTS customers Cascade;
@@ -166,5 +170,80 @@ CREATE TABLE order_reviews (
 );
 
 
+-- Dropping indexes
 
+-- Customers Table
+DROP INDEX IF EXISTS idx_customers_unique_customer_id;
 
+-- Geolocation Table
+DROP INDEX IF EXISTS idx_geolocation_zipcode;
+
+-- Sellers Table
+DROP INDEX IF EXISTS idx_sellers_seller_id;
+
+-- Orders Table
+DROP INDEX IF EXISTS idx_orders_order_id;
+DROP INDEX IF EXISTS idx_orders_customer_id;
+DROP INDEX IF EXISTS idx_orders_order_purchase_timestamp;
+
+-- Product Categories Table
+DROP INDEX IF EXISTS idx_product_categories_product_category_id;
+
+-- Products Table
+DROP INDEX IF EXISTS idx_products_product_id;
+DROP INDEX IF EXISTS idx_products_product_category_id;
+
+-- Order Items Table
+DROP INDEX IF EXISTS idx_order_items_order_id;
+DROP INDEX IF EXISTS idx_order_items_product_id;
+DROP INDEX IF EXISTS idx_order_items_seller_id;
+
+-- Payment Type Table
+DROP INDEX IF EXISTS idx_payment_type_payment_type_id;
+
+-- Order Payments Table
+DROP INDEX IF EXISTS idx_order_payments_order_id;
+DROP INDEX IF EXISTS idx_order_payments_payment_type_id;
+
+-- Order Reviews Table
+DROP INDEX IF EXISTS idx_order_reviews_review_id;
+DROP INDEX IF EXISTS idx_order_reviews_order_id;
+
+-- Creating Indexes
+
+-- Customers Table
+CREATE INDEX idx_customers_unique_customer_id ON customers (customer_unique_id);
+
+-- Geolocation Table
+CREATE INDEX idx_geolocation_zipcode ON geolocation (geolocation_zip_code_prefix);
+
+-- Sellers Table
+CREATE INDEX idx_sellers_seller_id ON sellers (seller_id);
+
+-- Orders Table
+CREATE INDEX idx_orders_order_id ON orders (order_id);
+CREATE INDEX idx_orders_customer_id ON orders (customer_id);
+CREATE INDEX idx_orders_order_purchase_timestamp ON orders (order_purchase_timestamp);
+
+-- Product Categories Table
+CREATE INDEX idx_product_categories_product_category_id ON product_categories (product_category_id);
+
+-- Products Table
+CREATE INDEX idx_products_product_id ON products (product_id);
+CREATE INDEX idx_products_product_category_id ON products (product_category_id);
+
+-- Order Items Table
+CREATE INDEX idx_order_items_order_id ON order_items (order_id);
+CREATE INDEX idx_order_items_product_id ON order_items (product_id);
+CREATE INDEX idx_order_items_seller_id ON order_items (seller_id);
+
+-- Payment Type Table
+CREATE INDEX idx_payment_type_id ON payment_types (payment_type_id);
+
+-- Order Payments Table
+CREATE INDEX idx_order_payments_order_id ON order_payments (order_id);
+CREATE INDEX idx_order_payments_payment_type_id ON order_payments (payment_type_id);
+
+-- Order Reviews Table
+CREATE INDEX idx_order_reviews_review_id ON order_reviews (review_id);
+CREATE INDEX idx_order_reviews_order_id ON order_reviews (order_id);
